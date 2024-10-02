@@ -1,0 +1,50 @@
+# Robot Interface Cable Assembly
+
+connectors:
+  W1J1:
+    <<: *template_picoblade_7s
+    pinlabels: [ 
+      VIN-, VIN+, 
+      OUT_COM, OUT4, OUT3, OUT2, OUT1, 
+    ]
+
+  W1J2:
+    <<: *template_picoblade_8s
+    pinlabels: [ 
+      INP1, INP2, INP3, INP4, INP_COM, 
+      XTXD, XRXD, XGND, 
+    ]
+
+  E1:
+    <<: *template_bare_wire
+    autogenerate: True
+
+cables:
+  W1:
+    <<: *template_awm2704_26awg
+    length: 2 m
+    wirecount: 16
+    colors: [ 
+      GNBK, WH,
+      GN, BU, VT, GY, YE, 
+      WHBK, OG, BUWH, RDWH, YEBK, 
+      BN, BK, RD, 
+      OGBK, GYBK, VTBK,
+    ]
+    wirelabels: [ 
+      VIN-, VIN+, 
+      OUT_COM, OUT4, OUT3, OUT2, OUT1, 
+      INP1, INP2, INP3, INP4, INP_COM, 
+      XTXD, XRXD, XGND,
+    ]
+
+connections:
+  -
+    - W1J1: [ VIN-, VIN+, OUT_COM, OUT4, OUT3, OUT2, OUT1, ]
+    - W1:   [ VIN-, VIN+, OUT_COM, OUT4, OUT3, OUT2, OUT1, ]
+    - E1
+  -
+    - W1J2: [ INP1, INP2, INP3, INP4, INP_COM, XTXD, XRXD, XGND, ]
+    - W1:   [ INP1, INP2, INP3, INP4, INP_COM, XTXD, XRXD, XGND, ]
+    - E1
+
