@@ -18,6 +18,11 @@ $ . venv/bin/activate
 $ pip install -r requirements.txt`
 ```
 
+It may be desirable to bypass bash and make diagrams entirely within
+Python. See this issue on GitHub where it seems to be possible.
+
+[https://github.com/wireviz/WireViz/issues/231](https://github.com/wireviz/WireViz/issues/231)
+
 Note the use of `common.yml` file and templates. This saves a lot 
 of extra and often duplicate entries in the cables' yaml definition 
 files.
