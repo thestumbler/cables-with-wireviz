@@ -17,7 +17,6 @@ connectors:
 
   E1:
     <<: *template_bare_wire
-    autogenerate: True
 
 cables:
   W1:
@@ -42,7 +41,7 @@ connections:
   -
     - W1J1: [ VIN-, VIN+, OUT_COM, OUT4, OUT3, OUT2, OUT1, ]
     - W1:   [ VIN-, VIN+, OUT_COM, OUT4, OUT3, OUT2, OUT1, ]
-    - E1
+    - E1.
   -
     - W1J2: [ INP1, INP2, INP3, INP4, INP_COM, XTXD, XRXD, XGND, ]
     - W1:   [ INP1, INP2, INP3, INP4, INP_COM, XTXD, XRXD, XGND, ]

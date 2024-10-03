@@ -24,10 +24,6 @@ connectors:
       VIN+, VIN-,
       INP1, INP2, INP3, INP4, ]
 
-  E1:
-    <<: *template_bare_wire
-    autogenerate: True
-
 cables:
   W1:
     <<: *template_awm2704_26awg

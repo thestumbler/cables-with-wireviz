@@ -1,6 +1,6 @@
 # Cable Diagram Tool
 
-Based on the `WireViz` project: [https://github.com/formatc1702/WireViz](https://github.com/formatc1702/WireViz)
+Based on the `WireViz` project: [https://github.com/wireviz/WireViz](https://github.com/wireviz/WireViz)
 
 1. Input files defining the cables are in the `yaml` directory
 2. Templates common to all the project's cables are in `common.yml`
@@ -19,9 +19,12 @@ $ pip install -r requirements.txt`
 ```
 
 It may be desirable to bypass bash and make diagrams entirely within
-Python. See this issue on GitHub where it seems to be possible.
+Python. See this issue [issue](https://github.com/wireviz/WireViz/issues/231)
+on GitHub, where it seems a possiblity now in current releases.
 
-[https://github.com/wireviz/WireViz/issues/231](https://github.com/wireviz/WireViz/issues/231)
+There also is a [GUI front end](https://github.com/slightlynybbled/wireviz-gui)
+available for WireViz. This looks like a good tool for working with an
+individual cable (not tried it yet).
 
 Note the use of `common.yml` file and templates. This saves a lot 
 of extra and often duplicate entries in the cables' yaml definition 
@@ -81,4 +84,9 @@ example files, for example:
 $ doall.sh examples
 ```
 
+## Clean the Output Directory
 
+```bash
+$ clean.sh
+```
+Note so self: could really create a Makefile to do all this.

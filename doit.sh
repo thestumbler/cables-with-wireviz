@@ -17,11 +17,12 @@ base="$1"
 infile="$1.yml"
 #wireviz $infile
 gvfile="$1.gv"
+formats="hpstg"
 
 cp "./$yamldir/$infile" .
 
 # run the main program
-wireviz --prepend-file "$prepend" "$infile"
+wireviz -p "$prepend" -f "$formats" "$infile"
 
 # see this topic about spreading out the spacing
 # https://github.com/formatc1702/WireViz/issues/174
