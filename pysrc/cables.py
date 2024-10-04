@@ -5,19 +5,22 @@ from wireviz.DataClasses import \
 from wireviz.wv_colors import COLOR_CODES, Color, ColorMode, \
   Colors, ColorScheme
 
+from common import *
 
-class CABLE_ADM2704_26(Cable):
-  defaults = {
-    'gauge': '26 AWG',
     # 'gauge': '0.129 mm2',
     # 'show_equiv': True,
+class CABLE_ADM2704_26(Cable):
+  kind = 'cable'
+  defaults = {
+    'gauge': "26 AWG",
     'color_code': 'DIN',
     'category': 'bundle',
     'notes': 'AWM 2704, 60C, 30VAC, Cable flame',
   }
   def __init__(self, name, *args, **kw):
    # , pins = None, pinlabels=None, pincolors=None):
-    super().__init__( name, __class__.defaults, *args, **kw)
+    super().__init__( name, **{ **__class__.defaults, **kw } )
+  def dict(self): return wvdict(self)
 
 
 '''

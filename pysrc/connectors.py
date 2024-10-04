@@ -3,8 +3,11 @@ from wireviz.DataClasses import \
   Options, Tweak, Image, AdditionalComponent, Connector, \
   Cable, Connection, MatePin, MateComponent
 
+from common import *
+
 
 class CPC16F(Connector):
+  kind = 'connector'
   defaults = {
     'type' : 'CPC Series Chassis Mount',
     'subtype' :  'female',
@@ -17,9 +20,11 @@ class CPC16F(Connector):
   }
   def __init__(self, name, *args, **kw):
    # , pins = None, pinlabels=None, pincolors=None):
-    super().__init__( name, __class__.defaults, *args, **kw)
+    super().__init__( name, **{ **__class__.defaults, **kw } )
+  def dict(self): return wvdict(self)
 
 class MTA_100_09(Connector):
+  kind = 'connector'
   defaults = {
     'type'         : 'MTA-100 IDC',
     'subtype'      : 'female',
@@ -32,9 +37,11 @@ class MTA_100_09(Connector):
   }
   def __init__(self, name, *args, **kw):
    # , pins = None, pinlabels=None, pincolors=None):
-    super().__init__( name, __class__.defaults, *args, **kw)
+    super().__init__( name, **{ **__class__.defaults, **kw } )
+  def dict(self): return wvdict(self)
 
 class MTA_100_09_male(Connector):
+  kind = 'connector'
   defaults = {
     'type'         : 'MTA-100 IDC FLYING',
     'subtype'      : 'male',
@@ -47,9 +54,11 @@ class MTA_100_09_male(Connector):
   }
   def __init__(self, name, *args, **kw):
    # , pins = None, pinlabels=None, pincolors=None):
-    super().__init__( name, __class__.defaults, *args, **kw)
+    super().__init__( name, **{ **__class__.defaults, **kw } )
+  def dict(self): return wvdict(self)
 
 class PICOBLADE_7S(Connector):
+  kind = 'connector'
   defaults = {
     'type': 'PICOBLADE 7-POSN SOCKET',
     'subtype': 'female',
@@ -61,8 +70,9 @@ class PICOBLADE_7S(Connector):
     'image': Image(src = 'images/picoblade-51021-07-socket.png' ),
   }
   def __init__(self, name, *args, **kw):
-   # , pins = None, pinlabels=None, pincolors=None):
-    super().__init__( name, __class__.defaults, *args, **kw)
+    # , pins = None, pinlabels=None, pincolors=None):
+    super().__init__( name, **{ **__class__.defaults, **kw } )
+  def dict(self): return wvdict(self)
 
 
 #    additional_components:
@@ -75,6 +85,7 @@ class PICOBLADE_7S(Connector):
 #
 
 class PICOBLADE_8S(Connector):
+  kind = 'connector'
   defaults = {
     'type': 'PICOBLADE 8-POSN SOCKET',
     'subtype': 'female',
@@ -87,9 +98,11 @@ class PICOBLADE_8S(Connector):
   }
   def __init__(self, name, *args, **kw):
    # , pins = None, pinlabels=None, pincolors=None):
-    super().__init__( name, __class__.defaults, *args, **kw)
+    super().__init__( name, **{ **__class__.defaults, **kw } )
+  def dict(self): return wvdict(self)
 
 class JST_SMR_18S(Connector):
+  kind = 'connector'
   defaults = {
     'type': 'JST 18-POSN SOCKET',
     'subtype': 'female',
@@ -102,7 +115,8 @@ class JST_SMR_18S(Connector):
   }
   def __init__(self, name, *args, **kw):
    # , pins = None, pinlabels=None, pincolors=None):
-    super().__init__( name, __class__.defaults, *args, **kw)
+    super().__init__( name, **{ **__class__.defaults, **kw } )
+  def dict(self): return wvdict(self)
 
 
 
