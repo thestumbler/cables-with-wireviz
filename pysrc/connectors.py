@@ -18,8 +18,8 @@ class CPC16F(Connector):
     'manufacturer' :  'TE Connectivity',
     'image' : Image( src = 'images/cpc-16pin-360px.png'),
   }
+  def __post_init__(self): pass
   def __init__(self, name, *args, **kw):
-   # , pins = None, pinlabels=None, pincolors=None):
     super().__init__( name, **{ **__class__.defaults, **kw } )
   def dict(self): return wvdict(self)
 
@@ -35,8 +35,8 @@ class MTA_100_09(Connector):
     'manufacturer' : 'TE Connectivity',
     'image'        : Image( src = 'images/mta100-9-360px.png', )
   }
+  def __post_init__(self): pass
   def __init__(self, name, *args, **kw):
-   # , pins = None, pinlabels=None, pincolors=None):
     super().__init__( name, **{ **__class__.defaults, **kw } )
   def dict(self): return wvdict(self)
 
@@ -52,8 +52,8 @@ class MTA_100_09_male(Connector):
     'manufacturer' : 'TE Connectivity',
     'image'        : Image(src = 'images/mta100-9-male-360px.png'),
   }
+  def __post_init__(self): pass
   def __init__(self, name, *args, **kw):
-   # , pins = None, pinlabels=None, pincolors=None):
     super().__init__( name, **{ **__class__.defaults, **kw } )
   def dict(self): return wvdict(self)
 
@@ -69,8 +69,8 @@ class PICOBLADE_7S(Connector):
     'manufacturer': 'Molex',
     'image': Image(src = 'images/picoblade-51021-07-socket.png' ),
   }
+  def __post_init__(self): pass
   def __init__(self, name, *args, **kw):
-    # , pins = None, pinlabels=None, pincolors=None):
     super().__init__( name, **{ **__class__.defaults, **kw } )
   def dict(self): return wvdict(self)
 
@@ -96,6 +96,7 @@ class PICOBLADE_8S(Connector):
     'manufacturer': 'Molex',
     'image': Image(src = 'images/picoblade-51021-07-socket.png' ),
   }
+  def __post_init__(self): pass
   def __init__(self, name, *args, **kw):
    # , pins = None, pinlabels=None, pincolors=None):
     super().__init__( name, **{ **__class__.defaults, **kw } )
@@ -111,8 +112,9 @@ class JST_SMR_18S(Connector):
     'notes': 'TBD',
     'mpn': 'SMR-18V-N',
     'manufacturer': 'JST',
-    'image': Image(src = 'src: images/jst-smr-18.png'),
+    'image': Image(src = 'images/jst-smr-18.png'),
   }
+  def __post_init__(self): pass
   def __init__(self, name, *args, **kw):
    # , pins = None, pinlabels=None, pincolors=None):
     super().__init__( name, **{ **__class__.defaults, **kw } )

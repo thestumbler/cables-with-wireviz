@@ -82,31 +82,22 @@ connections = [
 ]
 
 
-meta_dict = {
-  "title": "My title",
-}
+mlist = { "title": "My title" }
 
 clist = Group( 'connectors', w1j1, w1j2, w1j3 )
 wlist = Group( 'cables', w1 )
 
-#harness_dict = {
-#  "metadata": meta_dict,
-#  "connectors": connectors_dict,
-#  "cables": cables_dict,
-#  "connections": connections_list,
-#}
-
-harness_dict = {}
-harness_dict.update(  meta_dict )
-harness_dict.update(  clist.dict() )
-harness_dict.update(  wlist.dict() )
-harness_dict.update(  { 'connections' : connections } )
-
-my_harness, my_png, my_svg = wireviz.wireviz.parse( \
-    harness_dict, return_types=("harness", "png", "svg"))
-print(my_harness)
-Path("my_png.png").write_bytes(my_png)
-Path("my_svg.svg").write_text(my_svg, encoding="utf-8")
+hlist = {}
+hlist.update(  mlist )
+hlist.update(  clist.dict() )
+hlist.update(  wlist.dict() )
+hlist.update(  { 'connections' : connections } )
+ 
+harness, png, svg = wireviz.wireviz.parse( \
+    hlist, return_types=("harness", "png", "svg"))
+print(harness)
+Path("out/png.png").write_bytes(png)
+Path("out/svg.svg").write_text(svg, encoding="utf-8")
 
 # # print the the connectors
 # for c in connectors:

@@ -15,22 +15,25 @@ class Group:
     return { self.label : self.items }
 
 def wvdict( thing ):
-  # return key, value pair
-  #return thing.__dict__['name'],  \
-  #  { k: v for k, v in thing.__dict__.items()
-  #    if k not in {'name', 'bgcolor', 'bgcolor_title'} 
-  #  }
-  # return dict
-  if thing.kind == 'cable':
-    gauge = f"{thing.__dict__['gauge']} {thing.__dict__['gauge_unit']}"
-    thing.__dict__['gauge_unit'] = None
-    thing.__dict__['gauge'] = gauge
-
+  # we could use asdict here, 
+  # but still should remove the 'name' entry
   return { thing.__dict__['name'] :
     { k: v for k, v in thing.__dict__.items()
-      if k not in {'name', 'bgcolor', 'bgcolor_title', \
-          'ports_left', 'ports_right', 'visible_pins', \
-          'connections', 'gauge_unit'
-          } 
+      if k not in {'name' }
     }
   }
+
+# make our own class wrappers for cable, conectors, and connections
+def cableclass(cls):
+  kind = 'cable'
+  def __post_init__(self): pass
+  def __init__(self, name, *args, **kw):
+    super(cls,self).__init__( name, **{ **cls.defaults, **kw } )
+  def dict(self): return wvdict(self)
+  setattr(cls, 'kind', kind )
+  setattr(cls, '__post_init__', __post_init__ )
+  setattr(cls, '__init__', __init__ )
+  setattr(cls, 'dict', dict )
+  return cls
+
+

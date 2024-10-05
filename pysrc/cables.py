@@ -1,3 +1,4 @@
+from dataclasses import dataclass
 import wireviz
 from wireviz.DataClasses import \
   Options, Tweak, Image, AdditionalComponent, Connector, \
@@ -7,20 +8,33 @@ from wireviz.wv_colors import COLOR_CODES, Color, ColorMode, \
 
 from common import *
 
-    # 'gauge': '0.129 mm2',
-    # 'show_equiv': True,
+@dataclass
 class CABLE_ADM2704_26(Cable):
   kind = 'cable'
   defaults = {
+    # 'gauge': '0.129 mm2',
+    # 'show_equiv': True,
     'gauge': "26 AWG",
     'color_code': 'DIN',
     'category': 'bundle',
     'notes': 'AWM 2704, 60C, 30VAC, Cable flame',
   }
+  def __post_init__(self): pass
   def __init__(self, name, *args, **kw):
-   # , pins = None, pinlabels=None, pincolors=None):
     super().__init__( name, **{ **__class__.defaults, **kw } )
   def dict(self): return wvdict(self)
+
+@cableclass
+@dataclass
+class NEW_CABLE_ADM2704_26(Cable):
+  defaults = {
+    # 'gauge': '0.129 mm2',
+    # 'show_equiv': True,
+    'gauge': "26 AWG",
+    'color_code': 'DIN',
+    'category': 'bundle',
+    'notes': 'AWM 2704, 60C, 30VAC, Cable flame',
+  }
 
 
 '''
