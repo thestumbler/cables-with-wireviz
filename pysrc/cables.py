@@ -8,8 +8,12 @@ from wireviz.wv_colors import COLOR_CODES, Color, ColorMode, \
 
 from common import *
 
+# This was the first approach
+# lots of boilerplate needed
+# made a custom class decorator,
+# see below
 @dataclass
-class CABLE_ADM2704_26(Cable):
+class OLD_CABLE_ADM2704_26(Cable):
   kind = 'cable'
   defaults = {
     # 'gauge': '0.129 mm2',
@@ -26,7 +30,7 @@ class CABLE_ADM2704_26(Cable):
 
 @cableclass
 @dataclass
-class NEW_CABLE_ADM2704_26(Cable):
+class CABLE_ADM2704_26(Cable):
   defaults = {
     # 'gauge': '0.129 mm2',
     # 'show_equiv': True,

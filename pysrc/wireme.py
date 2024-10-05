@@ -8,8 +8,6 @@ from wireviz import wireviz
 from connectors import *
 from cables import *
 
-
-
 '''Example trying to use wireviz python library directly.'''
 
 w1j1 = PICOBLADE_7S( 

@@ -1,3 +1,4 @@
+from dataclasses import dataclass
 import wireviz
 from wireviz.DataClasses import \
   Options, Tweak, Image, AdditionalComponent, Connector, \
@@ -6,8 +7,9 @@ from wireviz.DataClasses import \
 from common import *
 
 
+@connectorclass
+@dataclass
 class CPC16F(Connector):
-  kind = 'connector'
   defaults = {
     'type' : 'CPC Series Chassis Mount',
     'subtype' :  'female',
@@ -18,13 +20,10 @@ class CPC16F(Connector):
     'manufacturer' :  'TE Connectivity',
     'image' : Image( src = 'images/cpc-16pin-360px.png'),
   }
-  def __post_init__(self): pass
-  def __init__(self, name, *args, **kw):
-    super().__init__( name, **{ **__class__.defaults, **kw } )
-  def dict(self): return wvdict(self)
 
+@connectorclass
+@dataclass
 class MTA_100_09(Connector):
-  kind = 'connector'
   defaults = {
     'type'         : 'MTA-100 IDC',
     'subtype'      : 'female',
@@ -35,13 +34,10 @@ class MTA_100_09(Connector):
     'manufacturer' : 'TE Connectivity',
     'image'        : Image( src = 'images/mta100-9-360px.png', )
   }
-  def __post_init__(self): pass
-  def __init__(self, name, *args, **kw):
-    super().__init__( name, **{ **__class__.defaults, **kw } )
-  def dict(self): return wvdict(self)
 
+@connectorclass
+@dataclass
 class MTA_100_09_male(Connector):
-  kind = 'connector'
   defaults = {
     'type'         : 'MTA-100 IDC FLYING',
     'subtype'      : 'male',
@@ -52,13 +48,10 @@ class MTA_100_09_male(Connector):
     'manufacturer' : 'TE Connectivity',
     'image'        : Image(src = 'images/mta100-9-male-360px.png'),
   }
-  def __post_init__(self): pass
-  def __init__(self, name, *args, **kw):
-    super().__init__( name, **{ **__class__.defaults, **kw } )
-  def dict(self): return wvdict(self)
 
+@connectorclass
+@dataclass
 class PICOBLADE_7S(Connector):
-  kind = 'connector'
   defaults = {
     'type': 'PICOBLADE 7-POSN SOCKET',
     'subtype': 'female',
@@ -68,24 +61,20 @@ class PICOBLADE_7S(Connector):
     'mpn': 'Molex 0510210700',
     'manufacturer': 'Molex',
     'image': Image(src = 'images/picoblade-51021-07-socket.png' ),
+    #'image': 'images/picoblade-51021-07-socket.png',
   }
-  def __post_init__(self): pass
-  def __init__(self, name, *args, **kw):
-    super().__init__( name, **{ **__class__.defaults, **kw } )
-  def dict(self): return wvdict(self)
 
-
+# TBD
 #    additional_components:
 #      -
 #        type: Crimp Socket, Molex 50079-8x00
 #        qty_multiplier: populated # multipier for quantity (number of populated pins)
 #        manufacturer: Molex # set manufacter name
 #        mpn: 0500798x00
-#
-#
 
+@connectorclass
+@dataclass
 class PICOBLADE_8S(Connector):
-  kind = 'connector'
   defaults = {
     'type': 'PICOBLADE 8-POSN SOCKET',
     'subtype': 'female',
@@ -96,14 +85,10 @@ class PICOBLADE_8S(Connector):
     'manufacturer': 'Molex',
     'image': Image(src = 'images/picoblade-51021-07-socket.png' ),
   }
-  def __post_init__(self): pass
-  def __init__(self, name, *args, **kw):
-   # , pins = None, pinlabels=None, pincolors=None):
-    super().__init__( name, **{ **__class__.defaults, **kw } )
-  def dict(self): return wvdict(self)
 
+@connectorclass
+@dataclass
 class JST_SMR_18S(Connector):
-  kind = 'connector'
   defaults = {
     'type': 'JST 18-POSN SOCKET',
     'subtype': 'female',
@@ -114,13 +99,6 @@ class JST_SMR_18S(Connector):
     'manufacturer': 'JST',
     'image': Image(src = 'images/jst-smr-18.png'),
   }
-  def __post_init__(self): pass
-  def __init__(self, name, *args, **kw):
-   # , pins = None, pinlabels=None, pincolors=None):
-    super().__init__( name, **{ **__class__.defaults, **kw } )
-  def dict(self): return wvdict(self)
-
-
 
 
 '''
