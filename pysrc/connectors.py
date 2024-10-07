@@ -4,7 +4,7 @@ from wireviz.DataClasses import \
   Options, Tweak, Image, AdditionalComponent, Connector, \
   Cable, Connection, MatePin, MateComponent
 
-from common import *
+from utils import *
 
 
 @connectorclass

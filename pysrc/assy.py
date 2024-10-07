@@ -6,7 +6,7 @@ from wireviz import wireviz
 #  Options, Tweak, Image, AdditionalComponent, Connector, \
 #  Cable, Connection, MatePin, MateComponent
 from connectors import *
-from cables import *
+from wires import *
 
 '''Example trying to use wireviz python library directly.'''
 
@@ -79,23 +79,39 @@ connections = [
   ]
 ]
 
-
 mlist = { "title": "My title" }
+tlist = { 'tweak': { 'override' : {'graph': {'ranksep' : '6' }} } }
+#tlist = {}
 
 clist = Group( 'connectors', w1j1, w1j2, w1j3 )
 wlist = Group( 'cables', w1 )
 
 hlist = {}
+hlist.update(  tlist )
 hlist.update(  mlist )
 hlist.update(  clist.dict() )
 hlist.update(  wlist.dict() )
 hlist.update(  { 'connections' : connections } )
  
-harness, png, svg = wireviz.wireviz.parse( \
-    hlist, return_types=("harness", "png", "svg"))
+# harness, png, pdf = wireviz.wireviz.parse(
+#     hlist, return_types=("harness", "png", "svg") 
+# )
+# Path("out/out.png").write_bytes(png)
+# Path("out/out.svg").write_text(svg, encoding="utf-8")
+
+harness, png, svg = wireviz.wireviz.parse( hlist,
+    return_types=("harness", 'png', 'svg'),
+    output_formats=('png', 'pdf'),
+    output_name = 'myassy',
+# these arguments don't seem to work
+#   output_dir = './out',
+#   image_paths = '.',
+)
+Path("out/out.png").write_bytes(png)
+Path("out/out.svg").write_text(svg, encoding="utf-8")
+
+
 print(harness)
-Path("out/png.png").write_bytes(png)
-Path("out/svg.svg").write_text(svg, encoding="utf-8")
 
 # # print the the connectors
 # for c in connectors:

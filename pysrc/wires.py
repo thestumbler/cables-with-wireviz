@@ -6,7 +6,7 @@ from wireviz.DataClasses import \
 from wireviz.wv_colors import COLOR_CODES, Color, ColorMode, \
   Colors, ColorScheme
 
-from common import *
+from utils import *
 
 # This was the first approach
 # lots of boilerplate needed

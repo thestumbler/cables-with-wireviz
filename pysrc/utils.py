@@ -50,7 +50,7 @@ def wirevizclass(cls):
     # initialize wireviz class, combining defaults and passed args
     super(cls,self).__init__( name, **{ **cls.defaults, **kw } )
   # function to return dictionary in format needed for parse
-  def dict(self): return wv2dict(self)
+  def dict(self): return wvdict(self)
   setattr(cls, '__post_init__', __post_init__ )
   setattr(cls, '__init__', __init__ )
   setattr(cls, 'dict', dict )
